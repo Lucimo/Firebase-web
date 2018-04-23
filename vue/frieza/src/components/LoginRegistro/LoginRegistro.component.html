@@ -1,0 +1,47 @@
+
+<section class="login-registro">
+  <h1>login-registro Component</h1>
+
+
+
+ <button v-on:click="clickDeBotonLogin">Logearse</button>
+ <button v-on:click="clickDeBotonRegistro">Registro</button>
+
+ <div class="plogin" v-show="blLoginVisible">
+ <h1>{{sTitulo}}</h1>
+
+ <div class="imgcontainer">
+   <img src="https://media.ao.com/en-GB/Productimages/Images/rvLarge/fridgemaster_mc55264_wh_01_l.jpg" alt="Avatar" class="avatar">
+ </div>
+ </div>
+
+  <div class="pregister" v-show="!blLoginVisible">
+  <h1>{{sTitulo}}</h1>
+
+  <div class="imgcontainer">
+    <img src="https://i.pinimg.com/originals/23/32/08/233208afe15d46569cf8374f7315d3a9.jpg" alt="Avatar" class="avatar">
+  </div>
+</div>
+  <div class="container">
+    <label for="uname"><b>Username</b></label>
+    <input type="text" placeholder="Enter Username" v-model="sEmail" required>
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" v-model="sPassword" required>
+
+    <div v-show="!blLoginVisible">
+      <button type="submit" v-on:click="registrar">Registrarse</button>
+    </div>
+    <div v-show="blLoginVisible">
+      <button type="submit" v-on:click="logear">Logearse</button>
+    </div>
+  <label v-show="!blLoginVisible">
+    <input type="checkbox" checked="checked" name="remember"> Remember me
+  </label>
+</div>
+
+  <div class="container" style="background-color:#f1f1f1">
+    <button type="button" class="cancelbtn">Cancel</button>
+
+  </div>
+</section>
