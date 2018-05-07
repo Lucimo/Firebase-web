@@ -1,9 +1,9 @@
 
 <section class="login-registro">
   <h1>login-registro Component</h1>
-
-
-
+ <button v-on:click="clickDeBotonLogout">Logout</button>
+ <button v-on:click="clickDeBotonLoginT">Logearse con Twitter</button>
+ <button v-on:click="loguearF">Logearse con Facebook</button>
  <button v-on:click="clickDeBotonLogin">Logearse</button>
  <button v-on:click="clickDeBotonRegistro">Registro</button>
 <h1>{{sTitulo}}</h1>
@@ -14,6 +14,9 @@
    <img src="https://media.ao.com/en-GB/Productimages/Images/rvLarge/fridgemaster_mc55264_wh_01_l.jpg" alt="Avatar" class="avatar">
  </div>
  </div>
+
+
+
 
   <div class="pregister" v-show="!blLoginVisible">
 
