@@ -1,8 +1,9 @@
 
 <section class="login-registro">
+  <div  v-show="!blDentro">
   <h1>login-registro Component</h1>
  <button v-on:click="clickDeBotonLogout">Logout</button>
- <button v-on:click="clickDeBotonLoginT">Logearse con Twitter</button>
+ <button v-on:click="loguearT">Logearse con Twitter</button>
  <button v-on:click="loguearF">Logearse con Facebook</button>
  <button v-on:click="clickDeBotonLogin">Logearse</button>
  <button v-on:click="clickDeBotonRegistro">Registro</button>
@@ -46,6 +47,16 @@
 
 
     <button type="button" class="cancelbtn">Cancel</button>
+  </div>
+  </div>
 </div>
+<!--____________________________-Dentro-_____________________________-->
+  <div id="dentro" v-show="blDentro">
+    <div id="Dtitulo">
+      <h1>Rellena el formulario</h1>
+    </div>
+    <div id="Dformulario">
+
+    </div>
   </div>
 </section>
