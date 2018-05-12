@@ -100,17 +100,6 @@ loguearT: function(event){
   // ...
 });
 }
-  /* Aqui mete el login de Twitter
-   logearT: function(event){
-    firebase.auth().signInWithEmailAndPassword(this.sEmail, this.sPassword).then(
-      function(user) {
-        alert("Estas dentro");
-      },
-      function(error){
-        alert(error);
-      }
-);
-  }
-  */
+
 }
 }

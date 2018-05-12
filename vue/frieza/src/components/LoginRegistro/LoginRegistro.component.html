@@ -2,11 +2,14 @@
 <section class="login-registro">
   <div  v-show="!blDentro">
   <h1>login-registro Component</h1>
- <button v-on:click="clickDeBotonLogout">Logout</button>
+
  <button v-on:click="loguearT">Logearse con Twitter</button>
  <button v-on:click="loguearF">Logearse con Facebook</button>
+ <br/>
  <button v-on:click="clickDeBotonLogin">Logearse</button>
  <button v-on:click="clickDeBotonRegistro">Registro</button>
+ <br/>
+<button v-on:click="clickDeBotonLogout">Logout</button>
 <h1>{{sTitulo}}</h1>
  <div class="plogin" v-show="blLoginVisible">
 
