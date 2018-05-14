@@ -26,7 +26,7 @@ export default {
   },
   methods: {
     deacargarPerfiles: function(){
-      firebase.firestore().collection("Perfiles").get().then(function(querySnapshot){
+      firebase.firestore().collection("Perfil").get().then(function(querySnapshot){
         querySnapshot.forEach(function(doc){
 
           console.log(doc.id, " => ", doc.data());

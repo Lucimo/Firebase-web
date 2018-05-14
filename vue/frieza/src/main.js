@@ -17,6 +17,7 @@ var config = {
    storageBucket: 'frieza-squad.appspot.com',
    messagingSenderId: '572763641798'
  };
+
  firebase.initializeApp(config);
 
  Vue.use(firebase);
