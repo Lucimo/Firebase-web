@@ -52,9 +52,16 @@
   <div class="dentro" v-show="this.props_blIsLoggedIn">
     <div class="Dtitulo">
       <h1>Rellena el formulario</h1>
+      <!--<label for="uname"><b>Nombre</b></label>-->
+      <input type="text" placeholder="Enter Nombre" v-model="sNombre" required>
+
+    <!--<label for="psw"><b>Nivel de poder</b></label>-->
+      <input type="text" placeholder="Enter Nivel de poder" v-model="sNivelDePoder" required>
+      <input type="text" placeholder="Enter Rango" v-model="sRango" required>
     </div>
     <div class="Dformulario">
-      <button v-on:click="logout">Loguot/Salir</button>
+      <button>Enviar</button>
+      <button v-on:click="logout">Logout/Salir</button>
     </div>
   </div>
 </section>

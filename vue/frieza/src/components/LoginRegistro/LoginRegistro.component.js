@@ -13,7 +13,10 @@ export default {
 		blLoginVisible: true,
 		sTitulo:"Login Email",
     sEmail:'',
-    sPassword:''
+    sPassword:'',
+    sNombre:'',
+    sNivelDePoder:'',
+    sRango:''
     }
   },
   created: function(){
