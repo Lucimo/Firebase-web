@@ -1,4 +1,6 @@
 import firebase from 'firebase'
+import { EventBus } from '../../Events/events_bus';
+
 var provider = new firebase.auth.FacebookAuthProvider();
 var provider2 = new firebase.auth.TwitterAuthProvider();
 
@@ -16,14 +18,16 @@ export default {
   },
   created: function(){
     firebase.auth().onAuthStateChanged(function(user) {
-      this.props_objuser = user
+      this.props_objuser = user;
       console.log("User----->"+user)
-      if(user){
-        this.props_blIsLoggedIn = true;
-      }
-      else{
+      if(user == null){
         this.props_blIsLoggedIn = false;
       }
+      else{
+        this.props_blIsLoggedIn = true;
+      }
+      EventBus.$emit('loginregister_userstatechanged',this.props_blIsLoggedIn)
+      console.log("this.props_blIsLoggedIn:"+this.props_blIsLoggedIn)
     });
   },
   computed: {

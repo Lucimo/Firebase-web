@@ -5,7 +5,7 @@ export default{
   data(){
     return{
       props_blIsLoggedIn: false,
-      props_objuser: {}
+      props_objuser: null
 
     }
   }
