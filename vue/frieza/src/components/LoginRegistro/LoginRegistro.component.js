@@ -3,7 +3,7 @@ import { EventBus } from '../../Events/events_bus';
 
 var provider = new firebase.auth.FacebookAuthProvider();
 var provider2 = new firebase.auth.TwitterAuthProvider();
-
+var provider3 = new firebase.auth.GoogleAuthProvider();
 export default {
   name: 'login-registro',
   components: {},
@@ -53,6 +53,10 @@ export default {
   clickDeBotonLoginT:function(event){
     this.blLoginVisible=true;
     this.sTitulo="Login Twitter";
+  },
+  clickDeBotonLoginG:function(event){
+    this.blLoginVisible=true;
+    this.sTitulo="Login Google";
   },
   registrar: function(event){
     firebase.auth().createUserWithEmailAndPassword(this.sEmail, this.sPassword).then(
@@ -125,7 +129,24 @@ loguearT: function(event){
     }).catch(function(error) {
       // An error happened.
     });
-  }
-
+  },
+loguearG: function(event){
+  firebase.auth().signInWithPopup(provider3).then(function(result3) {
+  // This gives you a Google Access Token. You can use it to access the Google API.
+  var token3 = result.credential.accessToken;
+  // The signed-in user info.
+  var user3 = result.user;
+  // ...
+}).catch(function(error3) {
+  // Handle Errors here.
+  var errorCode3 = error.code;
+  var errorMessage3 = error.message;
+  // The email of the user's account used.
+  var email3 = error.email;
+  // The firebase.auth.AuthCredential type that was used.
+  var credential3 = error.credential;
+  // ...
+});
+}
 }
 }
