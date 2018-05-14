@@ -1,5 +1,15 @@
 
 <section class="perfiles">
   <h1>perfiles Component</h1>
+  <div class="wrapper">
+  <div class="card" v-for="per in Perfil">
+    <a >
+      Nombre: {{per.name}}
+      <br/>
+      Nivel de Poder: {{per.power}}
+      <br/>
+      Rango: {{per.range}}
+    </a>
+  </div>
+</div>
 </section>
-
