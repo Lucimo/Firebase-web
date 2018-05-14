@@ -37,7 +37,15 @@ export default {
   methods: {
     deacargarPerfiles: function(){
       var that=this
-      firebase.firestore().collection("Perfil").get().then(function(querySnapshot){
+      /*firebase.firestore().collection("Perfil").get().then(function(querySnapshot){
+        querySnapshot.forEach(function(doc){
+
+          //console.log(doc.id, " => ", doc.data());
+          that.Perfil.push(new Perfil(doc.id,doc.data()))
+        });
+      });*/
+      firebase.firestore().collection("Perfil").onSnapshot(function(querySnapshot){
+        that.Perfil = []
         querySnapshot.forEach(function(doc){
 
           //console.log(doc.id, " => ", doc.data());
