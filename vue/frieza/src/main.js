@@ -4,6 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import firebase from 'firebase'
+import props from './mixins/props'
 // Lucas esta dentro, con dev funcionando
 Vue.config.productionTip = false
 
@@ -17,6 +18,7 @@ var config = {
  };
  firebase.initializeApp(config);
 
+vue.mixin(props)
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

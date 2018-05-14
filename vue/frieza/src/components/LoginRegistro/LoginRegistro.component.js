@@ -1,6 +1,7 @@
 import firebase from 'firebase'
 var provider = new firebase.auth.FacebookAuthProvider();
 var provider2 = new firebase.auth.TwitterAuthProvider();
+
 export default {
   name: 'login-registro',
   components: {},
@@ -13,6 +14,16 @@ export default {
     sEmail:'',
     sPassword:''
     }
+  },
+  beforeCreated: function(){
+    firebase.auth().onAuthStateChanged(function(user) {
+      if(user){
+        this.props_blIsLoggedIn = true
+      }
+      else{
+        this.props_blIsLoggedIn = false
+      }
+    });
   },
   computed: {
 
