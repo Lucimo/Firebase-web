@@ -9,19 +9,20 @@ export default {
   data () {
     return {
 		blLoginVisible: true,
-    blDentro: false,
 		sTitulo:"Login",
     sEmail:'',
     sPassword:''
     }
   },
-  beforeCreated: function(){
+  created: function(){
     firebase.auth().onAuthStateChanged(function(user) {
+      this.props_objuser = user
+      console.log("User----->"+user)
       if(user){
-        this.props_blIsLoggedIn = true
+        this.props_blIsLoggedIn = true;
       }
       else{
-        this.props_blIsLoggedIn = false
+        this.props_blIsLoggedIn = false;
       }
     });
   },
@@ -59,8 +60,7 @@ export default {
    logear: function(event){
     firebase.auth().signInWithEmailAndPassword(this.sEmail, this.sPassword).then(
       function(user) {
-        alert("Estas dentro");
-        this.blDentro=true;
+        alert("Estas dentro"+user);
       },
       function(error){
         alert(error);
@@ -110,7 +110,14 @@ loguearT: function(event){
   var credential2 = error.credential;
   // ...
 });
-}
+},
+  logout: function(event){
+    firebase.auth().signOut().then(function() {
+      // Sign-out successful.
+    }).catch(function(error) {
+      // An error happened.
+    });
+  }
 
 }
 }
