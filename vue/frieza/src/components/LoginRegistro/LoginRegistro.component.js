@@ -1,4 +1,4 @@
-import firebase from 'firebase'
+import firebase from 'firebase';
 import { EventBus } from '../../Events/events_bus';
 
 var provider = new firebase.auth.FacebookAuthProvider();
@@ -11,23 +11,27 @@ export default {
   data () {
     return {
 		blLoginVisible: true,
-		sTitulo:"Login",
+		sTitulo:"Login Email",
     sEmail:'',
     sPassword:''
     }
   },
   created: function(){
-    firebase.auth().onAuthStateChanged(function(user) {
+    firebase.auth().onAuthStateChanged((user) => {
       this.props_objuser = user;
       console.log("User----->"+user)
-      if(user == null){
-        this.props_blIsLoggedIn = false;
+      if(user){
+        this.props_blIsLoggedIn = true;
+
       }
       else{
-        this.props_blIsLoggedIn = true;
+        this.props_blIsLoggedIn = false;
+
       }
+
       EventBus.$emit('loginregister_userstatechanged',this.props_blIsLoggedIn)
       console.log("this.props_blIsLoggedIn:"+this.props_blIsLoggedIn)
+      console.log("this.dentro:"+this.dentro)
     });
   },
   computed: {
@@ -64,7 +68,7 @@ export default {
    logear: function(event){
     firebase.auth().signInWithEmailAndPassword(this.sEmail, this.sPassword).then(
       function(user) {
-        alert("Estas dentro"+user);
+        //alert("Estas dentro"+user);
       },
       function(error){
         alert(error);

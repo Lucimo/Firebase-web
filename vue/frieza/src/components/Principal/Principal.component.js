@@ -14,6 +14,7 @@ export default {
       blLoggedUser:this.props_blIsLoggedIn
     }
   },
+
   computed: {
 
   },
