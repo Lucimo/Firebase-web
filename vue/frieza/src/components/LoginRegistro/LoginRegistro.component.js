@@ -21,11 +21,24 @@ export default {
   },
   created: function(){
     firebase.auth().onAuthStateChanged((user) => {
-      this.props_objuser = user;
+    //  this.props_objuser = user;
+
       console.log("User----->"+user)
       if(user){
         this.props_blIsLoggedIn = true;
-
+      var docRef = firebase.firestore().collection("perfiles").doc(user.uid+ "");
+        docRef.get().then(function(doc) {
+            if (doc.exists) {
+              //  console.log("Document data:", doc.data());
+              //this.props_docobjperfil = doc.data();
+              this.setPerfil(doc.data())
+            } else {
+                // doc.data() will be undefined in this case
+                console.log("No existe este perfil");
+            }
+        }).catch(function(error) {
+            console.log("Error getting document:", error);
+             });
       }
       else{
         this.props_blIsLoggedIn = false;
@@ -64,6 +77,7 @@ export default {
   registrar: function(event){
     firebase.auth().createUserWithEmailAndPassword(this.sEmail, this.sPassword).then(
       function(user) {
+
         alert("Registrado");
       },
       function(error){
@@ -81,6 +95,21 @@ export default {
         alert(error);
       }
 );
+},
+Enviar: function(event){
+console.log(this.sEmail);
+firebase.firestore().collection("Perfil").add({
+    UserName: this.sNombre,
+    NivelDePoder: this.sNivelDePoder,
+    Rango: this.sRango
+})
+.then(function() {
+    console.log("Document successfully written!");
+})
+.catch(function(error) {
+    console.error("Error writing document: ", error);
+});
+
 },
 loguearF: function(event){
 firebase.auth().signInWithPopup(provider).then(function(result) {
